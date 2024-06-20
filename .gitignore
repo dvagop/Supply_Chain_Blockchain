@@ -1,0 +1,85 @@
+# Yarn files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Swap the comments on the following lines if you wish to use zero-installs
+# In that case, don't forget to run `yarn config set enableGlobalCache false`!
+# Documentation here: https://yarnpkg.com/features/caching#zero-installs
+#!.yarn/cache
+
+.pnp.*
+.pnp.cjs
+.pnp.loader.mjs
+
+# Node modules
+node_modules
+
+# Environment variables
+.env
+
+# Hardhat files
+/cache
+/artifacts
+/cache/solidity-files-cache.json
+
+# TypeChain files
+/typechain
+/typechain-types
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+# Hardhat Ignition default folder for deployments against a local node
+ignition/deployments/chain-31337
+
+# Local SQLite database
+database.sqlite
+
+# Deployed contract address
+deployedAddress.txt
+
+# Backup files
+hardhat.config.cjs.bak
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Project structure file
+project_structure.txt
+
+# Miscellaneous
+.cache/
+tmp/
+
+# Ignore minimal.sol and related files
+contracts/minimal.sol
+artifacts/contracts/minimal.sol
+
+#scripts excluded
+/scripts/assignLogisticEmployeeRole.js
+/scripts/assignSupplierRole.js
+/scripts/addUser.js
+/scripts/deploy.js
+/scripts/deployTest.cjs
+/scripts/interact.js
+/scripts/tempAdminRoleAssignment.js
+
+#test ?
+test/
