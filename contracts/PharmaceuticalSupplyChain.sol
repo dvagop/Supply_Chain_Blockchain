@@ -2,7 +2,6 @@
 pragma solidity ^0.8.7;
 
 contract PharmaceuticalSupplyChain {
-    // Define roles using an enum
     enum Role {
         Admin,
         Supplier,
@@ -48,6 +47,8 @@ contract PharmaceuticalSupplyChain {
         string manufacturer,
         uint256 quantity
     );
+    event ProductRemoved(uint256 indexed productId);
+
     event ShipmentCreated(
         uint256 indexed transferId,
         uint256 indexed productId,
@@ -87,7 +88,6 @@ contract PharmaceuticalSupplyChain {
 
     constructor() {
         owner = msg.sender;
-        // Assign the deployer the Admin role
         users[owner] = User(owner, Role.Admin);
         emit UserAdded(owner, Role.Admin);
     }
@@ -116,7 +116,7 @@ contract PharmaceuticalSupplyChain {
     function removeProduct(uint256 _productId) external onlySupplier {
         require(products[_productId].id != 0, "Product does not exist");
         delete products[_productId];
-        // Optional: Emit an event for product removal if needed.
+        emit ProductRemoved(_productId);
     }
 
     function createShipment(
