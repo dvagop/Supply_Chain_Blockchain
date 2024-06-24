@@ -1,3 +1,5 @@
+// scripts/addProduct.js
+
 import hardhat from "hardhat";
 import dotenv from "dotenv";
 import fs from "fs";
@@ -8,7 +10,6 @@ const { ethers } = hardhat;
 
 async function main() {
   try {
-    // Read the deployed contract address
     const contractAddress = fs
       .readFileSync("deployedAddress.txt", "utf8")
       .trim();
@@ -16,7 +17,7 @@ async function main() {
       "PharmaceuticalSupplyChain"
     );
 
-    const supplierAddress = process.env.SUPPLIER_ADDRESS; // Supplier address from .env
+    const supplierAddress = process.env.SUPPLIER_ADDRESS;
     const signers = await ethers.getSigners();
     const supplierSigner = signers.find(
       (signer) => signer.address === supplierAddress
@@ -29,9 +30,8 @@ async function main() {
     const contract =
       ContractFactory.attach(contractAddress).connect(supplierSigner);
 
-    // Define product details
-    const productName = "Product1"; // Example product name
-    const manufacturer = "Manufacturer1"; // Example manufacturer
+    const productName = "Paracetamole"; // Example product name
+    const manufacturer = "Pharma Inc"; // Example manufacturer
     const quantity = 100; // Example quantity
 
     // Add product

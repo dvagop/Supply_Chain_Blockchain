@@ -1,4 +1,6 @@
-// File: scripts/initEntities.js
+// scripts/initEntities.js
+
+scripts / initEntities.js;
 
 import hardhat from "hardhat";
 import dotenv from "dotenv";
@@ -10,7 +12,6 @@ const { ethers } = hardhat;
 
 async function main() {
   try {
-    // Read the deployed contract address
     const contractAddress = fs
       .readFileSync("deployedAddress.txt", "utf8")
       .trim();
@@ -21,7 +22,6 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     const contract = ContractFactory.attach(contractAddress);
 
-    // Define roles
     const roles = {
       Admin: 0,
       Supplier: 1,
@@ -29,7 +29,6 @@ async function main() {
       Auditor: 3,
     };
 
-    // Define entities
     const entities = [
       {
         address: process.env.DEPLOYER_ADDRESS,

@@ -8,7 +8,7 @@ module.exports = {
   networks: {
     localhost: {
       url: "http://127.0.0.1:8545",
-      chainId: 31337, // This should match the default chain ID used by Hardhat network
+      chainId: 31337,
     },
     sepolia: {
       url: process.env.SEPOLIA_URL || "",

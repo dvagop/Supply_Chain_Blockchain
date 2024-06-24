@@ -1,3 +1,5 @@
+// scripts/addUserSupplier.js
+
 import hardhat from "hardhat";
 import dotenv from "dotenv";
 import fs from "fs";
@@ -18,7 +20,7 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     const contract = ContractFactory.attach(contractAddress);
 
-    const supplierAddress = process.env.SUPPLIER_ADDRESS; // Supplier address from .env
+    const supplierAddress = process.env.SUPPLIER_ADDRESS;
     const role = 1; // 1 for Supplier
 
     const tx = await contract.addUser(supplierAddress, role);
